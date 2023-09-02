@@ -51,5 +51,5 @@ int main() {
     printf("\nTime after incrementing by one second:\n");
     displayTime(time);
     
-   return 0;
+    return 0;
 }

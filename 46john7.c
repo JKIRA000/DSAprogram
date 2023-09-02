@@ -20,33 +20,28 @@ void displayTime(struct time_struct time) {
     printf("Time: %02d:%02d:%02d\n", time.hour, time.minute, time.second);
 }
 
-void updateTime(struct time_struct *time)
-{ 
+void updateTime(struct time_struct *time) {
     time->second++;
 
-    if (time->second >= 60) 
-    {
+    if (time->second >= 60) {
         time->second = 0;
         time->minute++;
-         if (time->second >= 60) 
-        {
+   if (time->second >= 60) {
         time->second = 0;
         time->minute++;
 
-            if (time->minute >= 60) 
-            {
+        if (time->minute >= 60) {
             time->minute = 0;
             time->hour++;
 
-                if (time->hour >= 24)
-                {
+            if (time->hour >= 24) {
                 time->hour = 0;
-                }
             }
         }
     }
 }
-int main()
+
+int main();
 {
     struct time_struct time;
     
