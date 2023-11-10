@@ -1,7 +1,14 @@
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/09/23
+Description:  Program for Expression Evaluation
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <ctype.h>
 // Define a stack data structure to help with the evaluation
 struct Stack {
     int top;
@@ -72,7 +79,7 @@ int evaluatePostfix(char* exp) {
 }
 
 int main() {
-    char exp[] = "52*3+";
+    char exp[] = "62+2/3+";
     printf("Expression: %s\n", exp);
     printf("Result: %d\n", evaluatePostfix(exp));
     return 0;
