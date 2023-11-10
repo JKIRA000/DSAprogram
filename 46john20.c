@@ -1,3 +1,10 @@
+/*
+Roll no:52
+Batch:C
+Author Name:Savin Johnson
+Date:2/10/23
+Description:Linked list implementation of priority queue
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
