@@ -1,3 +1,10 @@
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/09/23
+Description:determine if no is in fibonacci sequence
+*/
 #include <stdio.h>
 
 #define MAX_SIZE 100
