@@ -1,7 +1,7 @@
 # Data Structure Lab Experiments
-## 1) Name : Savin Johnson
-## 2) Roll no : 52
-## 3) Batch : C
+## 1) Name : John Joy
+## 2) Roll no : 46
+## 3) Batch : B
 
 # Experiment List (Part A)
 | Question Number | Program |  Link to Code |
