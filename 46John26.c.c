@@ -1,7 +1,7 @@
 /*
-Roll no:52
-Batch:C
-Author Name:Savin Johnson
+Roll no:46
+Batch:B
+Author Name:John Joy
 Date:17/10/23
 Description:Implementation of operations (insertion,Search,counting of leaf nodes,etc)In a binary search tree
 */
