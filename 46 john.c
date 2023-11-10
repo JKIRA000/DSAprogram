@@ -1,55 +1,36 @@
-//Time Incrementing
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/09/23
+Description:pascal triangle
+*/
 #include <stdio.h>
 
-struct time_struct {
-    int hour;
-    int minute;
-    int second;
-};
+int main()
+{
+    int arr[50][50];
 
-void inputTime(struct time_struct *time) {
-    printf("Enter hour: ");
-    scanf("%d", &time->hour);
-    printf("Enter minute: ");
-    scanf("%d", &time->minute);
-    printf("Enter second: ");
-    scanf("%d", &time->second);
-}
+    int i = 0;
+    int j = 0;
 
-void displayTime(struct time_struct time) {
-    printf("Time: %02d:%02d:%02d\n", time.hour, time.minute, time.second);
-}
+    int n = 0;
 
-void updateTime(struct time_struct *time) {
-    time->second++;
+    printf("Enter the number of lines: ");
+    scanf("%d", &n);
 
-   if (time->second >= 60) {
-        time->second = 0;
-        time->minute++;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n - 1 - i; ++j)
+            printf(" ");
 
-        if (time->minute >= 60) {
-            time->minute = 0;
-            time->hour++;
-
-            if (time->hour >= 24) {
-                time->hour = 0;
-            }
+        for (j = 0; j <= i; ++j) {
+            if (j == 0 || j == i)
+                arr[i][j] = 1;
+            else
+                arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
+            printf("%d ", arr[i][j]);
         }
+        printf("\n");
     }
-}
-
-int main() {
-    struct time_struct time;
-    
-    printf("Input new time:\n");
-    inputTime(&time);
-    
-    printf("\nTime details:\n");
-    displayTime(time);
-    
-    updateTime(&time);
-    printf("\nTime after incrementing by one second:\n");
-    displayTime(time);
-    
-    return 0;
+    return 0;
 }
