@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 int compare(int arr1[], int arr2[], int size) {
