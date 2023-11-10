@@ -1,3 +1,10 @@
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:8/09/23
+Description:Array Implementation of queue
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
