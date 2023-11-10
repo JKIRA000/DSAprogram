@@ -1,3 +1,10 @@
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/09/23
+Description: Program to implement insert, delete, display, search in linked list
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
