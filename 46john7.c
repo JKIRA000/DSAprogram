@@ -1,4 +1,10 @@
-//Time Incrementing
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/09/23
+Description:Time Incrementing
+*/
 #include <stdio.h>
 
 struct time_struct {
@@ -26,9 +32,6 @@ void updateTime(struct time_struct *time) {
     if (time->second >= 60) {
         time->second = 0;
         time->minute++;
-   if (time->second >= 60) {
-        time->second = 0;
-        time->minute++;
 
         if (time->minute >= 60) {
             time->minute = 0;
@@ -41,8 +44,7 @@ void updateTime(struct time_struct *time) {
     }
 }
 
-int main();
-{
+int main() {
     struct time_struct time;
     
     printf("Input new time:\n");
@@ -55,5 +57,5 @@ int main();
     printf("\nTime after incrementing by one second:\n");
     displayTime(time);
     
-  return 0;
+    return 0;
 }
