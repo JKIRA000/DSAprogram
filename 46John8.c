@@ -1,3 +1,10 @@
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/09/23
+Description:identical arrays comparison
+*/
 #include <stdio.h>
 
 int compare(int arr1[], int arr2[], int size) {
@@ -37,4 +44,3 @@ int main() {
 
     return 0;
 }
-
