@@ -1,46 +1,45 @@
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/10/23
+Description:Program to implement Insertion Sort 
+*/
 #include <stdio.h>
 
-// ----------------- Insertion sort ----------------
 void insertionSort(int arr[], int n) {
-    
-    for (int i = 1; i < n; i++) {
-        int key = arr[i];   // Store the "current element" to be inserted
-        int j = i - 1;      // Initialize the index for the "previous element"
+    int i, key, j;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
 
-
-        // Shift elements ahead that are greater than the key their current position
+        // Move elements of arr[0..i-1] that are greater than key
+        // to one position ahead of their current position
         while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j]; 
-            j--;
+            arr[j + 1] = arr[j];
+            j = j - 1;
         }
-        arr[j + 1] = key; // Insert the key into its correct position
+        arr[j + 1] = key;
     }
-
 }
 
 int main() {
-    
-    int n;
-    printf("\n Enter the numbers to be sorted :");
-    scanf("%d",&n);
-    int arr[n];
+    int arr[] = {12, 11, 13, 5, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    printf("\n Enter Numbers one by one : \n");
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-    }
-
-    printf("Unsorted array: ");
+    printf("Unsorted array: \n");
     for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]); // Print the unsorted array
+        printf("%d ", arr[i]);
     }
+    printf("\n");
 
-    insertionSort(arr, n); // Sort the array using insertion sort
+    insertionSort(arr, n);
 
-    printf("\nSorted array: ");
+    printf("Sorted array: \n");
     for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]); // Print the sorted array
+        printf("%d ", arr[i]);
     }
+    printf("\n");
 
     return 0;
 }
