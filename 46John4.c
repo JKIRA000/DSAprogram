@@ -1,34 +1,43 @@
- #include <stdio.h>
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/09/23
+Description:descending order based on percentage
+*/
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    int roll_no;
+    char name[50];
+    float percentage;
+		};
+
+int comp(const void *a, const void *b) {
+    return ((struct Student *)b)->percentage - ((struct Student *)a)->percentage;
+					}
 
 int main() {
-    int size;
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
+    struct Student students[5];
 
-    int array[size];
-    printf("Enter the elements of the array:\n");
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &array[i]);
-    }
+    for (int i = 0; i < 5; i++) {
+        printf("Enter details for student %d:\n", i + 1);
+        printf("Roll Number: ");
+        scanf("%d", &students[i].roll_no);
+        printf("Name: ");
+        scanf("%s", students[i].name);
+        printf("Percentage: ");
+        scanf("%f", &students[i].percentage);
+  				  }
 
-    printf("Unique elements in the array: ");
+    qsort(students, 5, sizeof(struct Student), comp);
 
-    for (int i = 0; i < size; i++) {
-        int d = 1;
-
-        for (int j = 0; j < size; j++) {
-            if (i != j && array[i] == array[j]) {
-                d = 0;
-                break;
-            }
-        }
-
-        if (d) {
-            printf("%d ", array[i]);
-        }
-    }
-
-    printf("\n");
+    printf("\nStudent Records (Sorted by Percentage in Descending Order):\n");
+    printf("Roll No\tName\tPercentage\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d\t%s\t%.2f\n", students[i].roll_no, students[i].name, students[i].percentage);
+   	 }
 
     return 0;
 }
