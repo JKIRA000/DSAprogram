@@ -3,115 +3,84 @@ Roll no:46
 Batch:B
 Author Name:John Joy
 Date:2/09/23
-Description:ascending order based on roll no
+Description:  Program for Expression Evaluation
 */
 #include <stdio.h>
 #include <stdlib.h>
-
-struct node {
-    int info;
-    struct node *next;
+#include <string.h>
+#include <ctype.h>
+// Define a stack data structure to help with the evaluation
+struct Stack {
+    int top;
+    unsigned capacity;
+    int* array;
 };
 
-// Function to allocate memory for a new node
-struct node *getnode(void) {
-    return (struct node *)malloc(sizeof(struct node));
+// Create and initialize a stack
+struct Stack* createStack(unsigned capacity) {
+    struct Stack* stack = (struct Stack*)malloc(sizeof(struct Stack));
+    stack->capacity = capacity;
+    stack->top = -1;
+    stack->array = (int*)malloc(stack->capacity * sizeof(int));
+    return stack;
 }
 
-// Function to free memory for a given node
-void freenode(struct node *p) {
-    free(p);
+// Check if the stack is empty
+int isEmpty(struct Stack* stack) {
+    return stack->top == -1;
 }
 
-struct node *front = NULL; // Initialize the front of the queue
-struct node *rear = NULL;  // Initialize the rear of the queue
-
-// Function to enqueue (insert) an element at the rear of the queue
-void enqueue(int x) {
-    struct node *newnode = getnode();
-    newnode->info = x;
-    newnode->next = NULL;
-    
-    if (rear == NULL) {
-        // If the queue is empty, set both front and rear to the new node
-        front = rear = newnode;
-    } else {
-        // Otherwise, add the new node to the rear of the queue
-        rear->next = newnode;
-        rear = newnode;
-    }
+// Push an element onto the stack
+void push(struct Stack* stack, int item) {
+    stack->array[++stack->top] = item;
 }
 
-// Function to dequeue (remove) an element from the front of the queue
-int dequeue() {
-    if (front == NULL) {
-        printf("Queue is empty\n");
-        return -1; // or some error code
-    }
-    
-    struct node *temp = front;
-    int value = temp->info;
-    
-    if (front == rear) {
-        // If there is only one element in the queue, set both front and rear to NULL
-        front = rear = NULL;
-    } else {
-        // Otherwise, move front to the next node in the queue
-        front = front->next;
-    }
-    
-    freenode(temp);
-    return value;
+// Pop an element from the stack
+int pop(struct Stack* stack) {
+    if (!isEmpty(stack))
+        return stack->array[stack->top--];
+    return -1; // Return -1 for empty stack (error condition)
 }
 
-// Function to display the elements in the queue
-void display() {
-    struct node *temp = front;
-    if (temp == NULL) {
-        printf("Queue is empty\n");
-        return;
-    }
-    
-    printf("Queue: ");
-    while (temp != NULL) {
-        printf("%d -> ", temp->info);
-        temp = temp->next;
-    }
-    printf("NULL\n");
-}
+// Evaluate the given postfix expression
+int evaluatePostfix(char* exp) {
+    struct Stack* stack = createStack(strlen(exp));
+    int i;
 
-int main() {
-    int choice, x;
-
-    while (1) {
-        printf("1. Enqueue\n");
-        printf("2. Dequeue\n");
-        printf("3. Display\n");
-        printf("4. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
-        switch (choice) {
-            case 1:
-                printf("Enter element to enqueue: ");
-                scanf("%d", &x);
-                enqueue(x);
+    // Iterate through the expression
+    for (i = 0; exp[i]; ++i) {
+        // If the current character is a digit, push it onto the stack
+        if (isdigit(exp[i]))
+            push(stack, exp[i] - '0');
+        else {
+            // If it's an operator, pop two operands from the stack,
+            // perform the operation, and push the result back onto the stack
+            int operand2 = pop(stack);
+            int operand1 = pop(stack);
+            switch (exp[i]) {
+            case '+':
+                push(stack, operand1 + operand2);
                 break;
-            case 2:
-                x = dequeue();
-                if (x != -1) {
-                    printf("Dequeued element: %d\n", x);
-                }
+            case '-':
+                push(stack, operand1 - operand2);
                 break;
-            case 3:
-                display();
+            case '*':
+                push(stack, operand1 * operand2);
                 break;
-            case 4:
-                exit(0);
-            default:
-                printf("Invalid choice\n");
+            case '/':
+                push(stack, operand1 / operand2);
+                break;
+            }
         }
     }
 
+    // The final result should be on the top of the stack
+    return pop(stack);
+}
+
+int main() {
+    char exp[] = "62+2/3+";
+    printf("Expression: %s\n", exp);
+    printf("Result: %d\n", evaluatePostfix(exp));
     return 0;
 }
