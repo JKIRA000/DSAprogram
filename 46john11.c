@@ -1,3 +1,10 @@
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/09/23
+Description:array implementation of stack
+*/
 #include <stdio.h>
 #include<stdlib.h> 	// exit
 #define MAX_SIZE 10 	// size of array 10
