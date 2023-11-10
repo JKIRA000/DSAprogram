@@ -1,10 +1,4 @@
-/*
-Roll no:46
-Batch:B
-Author NameJohn joy
-Date:2/09/23
-Description:pascal triangle
-*/
+
 #include<stdio.h> 
 
 int main()
