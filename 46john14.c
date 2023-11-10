@@ -1,3 +1,10 @@
+/*
+Roll no:46
+Batch:C
+Author Name:John Joy
+Date:2/09/23
+Description: Array Implementation of Double Ended Queue
+*/
 #include<stdio.h>
 #include<stdlib.h>
 
