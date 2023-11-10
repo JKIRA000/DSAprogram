@@ -1,3 +1,10 @@
+/*
+Roll no:46
+Batch:B
+Author Name:John joy
+Date:2/09/23
+Description: Linked List Implementation of Stack
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
