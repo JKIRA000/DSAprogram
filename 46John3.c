@@ -1,41 +1,44 @@
-
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/09/23
+Description:ascending order based on roll no
+*/
 #include <stdio.h>
+#include <string.h>
 
-int compare(int arr1[], int arr2[], int size) {
-    for (int i = 0; i < size; i++) {
-        if (arr1[i] != arr2[i]) {
-            return 0; // Arrays are not identical
-        }
-    }
-    return 1; // Arrays are identical
+struct Student {
+    int roll_no;
+    char name[50];
+    float percentage;
+};
+
+int compare(const void *a, const void *b) {
+    return ((struct Student *)a)->roll_no - ((struct Student *)b)->roll_no;
 }
 
 int main() {
-    int size;
-    printf("Enter the size of the arrays: ");
-    scanf("%d", &size);
+    struct Student students[5];
 
-    int array1[size];
-    int array2[size];
-
-    printf("Enter elements for the first array:\n");
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &array1[i]);
-    		}
-
-    printf("Enter elements for the second array:\n");
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &array2[i]);
-    	}
-
-    int result = compare(array1, array2, size);
-
-    if (result == 1) {
-        printf("The arrays are identical.\n");
-    } else {
-        printf("The arrays are not identical.\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Enter details for student %d:\n", i + 1);
+        printf("Roll Number: ");
+        scanf("%d", &students[i].roll_no);
+        printf("Name: ");
+        scanf("%s", students[i].name);
+        printf("Percentage: ");
+        scanf("%f", &students[i].percentage);
     }
 
+    qsort(students, 5, sizeof(struct Student), compare);
+
+    printf("\nStudent Records (Sorted by Roll Number):\n");
+    printf("Roll No\tName\tPercentage\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d\t%s\t%.2f\n", students[i].roll_no, students[i].name, students[i].percentage);
+    }
+    
     return 0;
 }
 
