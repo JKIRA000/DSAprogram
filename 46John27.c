@@ -1,7 +1,7 @@
 /*
-Roll no:52
-Batch:C
-Author Name:Savin Johnson
+Roll no:46
+Batch:B
+Author Name:John Joy
 Date:26/10/23
 Description: Array Implementation of Graph with BFS traversal 
 */
