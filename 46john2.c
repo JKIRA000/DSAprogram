@@ -1,38 +1,36 @@
-
-#include<stdio.h> 
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/09/23
+Description:pascal triangle
+*/
+#include <stdio.h>
 
 int main()
-
 {
+    int arr[50][50];
 
-int size;
+    int i = 0;
+    int j = 0;
 
-	printf("enter no of elements in an array\n");	//enter input for array size
-	
-	scanf("%d",&size);
-	
-int arr[size];
-	for(int i=0;i<=(size-1);i++)
-	{
-		printf("enter element for base index [%d]: ",i ); //enter elements of array
-		scanf("%d",&arr[i]);
-	}
+    int n = 0;
 
-	for(int i=0;i<=(size-1);i++)
-	{
-		printf("element for base index [%d] is: %d ",i,arr[i]); //displaying elements of all base index of an array
-		printf("\n");
-	}
-	for(int i=0;i<=(size-1);i++)
-	{
-		if(arr[0]<arr[i])					//if arr[0] is less than the other assinging the element of that array to arr[0];
-		{	
-			arr[0]=arr[i];
-			
-		}
-	}
-		printf("The largest element in the given array is: %d",arr[0]);
+    printf("Enter the number of lines: ");
+    scanf("%d", &n);
 
-return 0;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n - 1 - i; ++j)
+            printf(" ");
+
+        for (j = 0; j <= i; ++j) {
+            if (j == 0 || j == i)
+                arr[i][j] = 1;
+            else
+                arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
 }
-
