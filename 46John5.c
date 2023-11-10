@@ -1,44 +1,44 @@
-#include <stdio.h>
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy 
+Date:2/09/23
+Description:largest element in an array
+*/
+#include<stdio.h> 
 
-int main() {
-    int size;
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
+int main()
 
-    int array[size];
-    printf("Enter the elements of the array:\n");
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &array[i]);
-    }
+{
 
-    int count = 0;
-    
-    for (int i = 0; i < size; i++) {
-        int d = 0;
+int size;
 
-        for (int j = 0; j < i; j++) {
-            if (array[i] == array[j]) {
-                d = 1;
-                break;
-            }
-        }
+	printf("enter no of elements in an array\n");	//enter input for array size
+	
+	scanf("%d",&size);
+	
+int arr[size];
+	for(int i=0;i<=(size-1);i++)
+	{
+		printf("enter element for base index [%d]: ",i ); //enter elements of array
+		scanf("%d",&arr[i]);
+	}
 
-        if (d) {
-            int occurrences = 0;
-            for (int j = i + 1; j < size; j++) {
-                if (array[i] == array[j]) {
-                    occurrences++;
-                }
-            }
-            
-            if (occurrences > 0) {
-                count++;
-            }
-        }
-    }
+	for(int i=0;i<=(size-1);i++)
+	{
+		printf("element for base index [%d] is: %d ",i,arr[i]); //displaying elements of all base index of an array
+		printf("\n");
+	}
+	for(int i=0;i<=(size-1);i++)
+	{
+		if(arr[0]<arr[i])					//if arr[0] is less than the other assinging the element of that array to arr[0];
+		{	
+			arr[0]=arr[i];
+			
+		}
+	}
+		printf("The largest element in the given array is: %d",arr[0]);
 
-    printf("Total number of duplicate elements: %d\n", count);
-
-    return 0;
+return 0;
 }
 
