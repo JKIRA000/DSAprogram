@@ -1,4 +1,11 @@
- #include <stdio.h>
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy 
+Date:2/09/23
+Description:print  unique elements
+*/
+#include <stdio.h>
 
 int main() {
     int size;
