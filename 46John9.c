@@ -1,3 +1,10 @@
+/*
+Roll no:46
+Batch:B
+Author Name:John Joy
+Date:2/09/23
+Description:print duplicate elements
+*/
 #include <stdio.h>
 
 int main() {
@@ -41,4 +48,3 @@ int main() {
 
     return 0;
 }
-
